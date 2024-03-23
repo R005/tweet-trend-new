@@ -5,11 +5,13 @@ pipeline {
         }
     }
 
+environment {
+    PATH = "/opt/apache-maven-3.9.6/bin:$PATH"
+}
+
     stages {
-        stage('Clone-clde') {
-            steps {
-                git branch: 'main', url: 'https://github.com/R005/tweet-trend-new.git'
-            }
+        stage {
+            sh 'mvn clean deploy'
         }
     }
 }
