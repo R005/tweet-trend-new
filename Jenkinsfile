@@ -17,11 +17,11 @@ environment {
         }
 
         stage('SonarQube analysis') {
-            tools {
-                jdk "jdk17"
-            }
             environment {
                 scannerHome = tool 'r0005-sonar-scanner';
+            }
+            tools {
+                jdk "jdk17"
             }
             steps {
                 withSonarQubeEnv('r0005-sonarqube-server') { // If you have configured more than one global server connection, you can specify its name
